@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { AddNote } from "./AddNote";
 import { useContext } from "react";
@@ -7,7 +7,10 @@ import Noteitem from "./Noteitem";
 
 const Notes = () => {
   const context = useContext(NoteContext);
-  const { notes, setNotes } = context;
+  const { notes, getNotes } = context;
+  useEffect(() => {
+    getNotes();
+  }, []);
   return (
     <React.Fragment>
       <AddNote />
