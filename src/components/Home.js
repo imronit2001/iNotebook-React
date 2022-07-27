@@ -1,31 +1,35 @@
 import React from "react";
 import Notes from "./Notes";
+import SendIcon from "@mui/icons-material/Send";
+import { Button } from "@mui/material";
 
 const Home = () => {
   return (
     <React.Fragment>
-      <div>
-        <div className="container">
-          <h1>Add a Note</h1>
+      <div className="mt-2">
+        <div className="container mt-2">
+          <h4 className="card-title">Add a Note</h4>
           <form className="my-3">
             <div className="form-floating mb-3">
               <input
-                type="email"
+                type="text"
                 className="form-control"
-                id="floatingInput"
-                placeholder="name@example.com"
+                id="floatingTitle"
+                placeholder="Title"
               />
-              <label for="floatingInput">Email address</label>
+              <label htmlFor="floatingTitle">Title</label>
             </div>
             <div className="form-floating mb-3">
-              <input
-                type="password"
+              <textarea
                 className="form-control"
-                id="floatingPassword"
-                placeholder="Password"
-              />
-              <label for="floatingPassword">Password</label>
+                id="floatingDescription"
+                placeholder="Description"
+              ></textarea>
+              <label htmlFor="floatingDescription">Description</label>
             </div>
+            <Button variant="contained" endIcon={<SendIcon />}>
+              Save
+            </Button>
           </form>
         </div>
       </div>

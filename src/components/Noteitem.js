@@ -1,4 +1,7 @@
 import React from "react";
+import { Button } from "@mui/material";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const Noteitem = (props) => {
   const { note } = props;
@@ -8,18 +11,15 @@ const Noteitem = (props) => {
         <div className="card my-3">
           <div className="card-body">
             <h5 className="card-title">{note.title}</h5>
-            <p className="card-text">
-              {note.description} Lorem Ipsum is simply dummy text of the
-              printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s, when an
-              unknown printer took a galley of type and scrambled it to make a
-              type specimen book. It has survived not only five centuries, but
-              also the leap into electronic typesetting, remaining essentially
-              unchanged. It was popularised in the 1960s with the release of
-              Letraset sheets containing Lorem Ipsum passages, and more recently
-              with desktop publishing software like Aldus PageMaker including
-              versions of Lorem Ipsum.
-            </p>
+            <p className="card-text">{note.description}</p>
+            <div className="d-flex justify-content-between">
+              <Button variant="contained">
+                <EditIcon />
+              </Button>
+              <Button variant="contained" color="error">
+                <DeleteIcon />
+              </Button>
+            </div>
           </div>
         </div>
       </div>

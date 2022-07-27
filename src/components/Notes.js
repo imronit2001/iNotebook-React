@@ -9,7 +9,7 @@ const Notes = () => {
   return (
     <React.Fragment>
       <div className="row my-3">
-        <h1>Your Notes</h1>
+        <h4 className="card-title">Your Notes</h4>
         {notes.map((note) => {
           return <Noteitem note={note} />;
         })}
