@@ -1,4 +1,6 @@
 import React from "react";
+
+import { AddNote } from "./AddNote";
 import { useContext } from "react";
 import NoteContext from "../context/notes/NoteContext";
 import Noteitem from "./Noteitem";
@@ -8,6 +10,7 @@ const Notes = () => {
   const { notes, setNotes } = context;
   return (
     <React.Fragment>
+      <AddNote />
       <div className="row my-3">
         <h4 className="card-title">Your Notes</h4>
         {notes.map((note) => {
