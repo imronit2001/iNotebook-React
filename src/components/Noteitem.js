@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import NoteContext from "../context/notes/NoteContext";
 
 const Noteitem = (props) => {
+  const context = useContext(NoteContext);
+  const { deleteNote } = context;
   const { note } = props;
   return (
     <React.Fragment>
@@ -17,7 +20,11 @@ const Noteitem = (props) => {
                 <EditIcon />
               </Button>
               <Button variant="contained" color="error">
-                <DeleteIcon />
+                <DeleteIcon
+                  onClick={() => {
+                    deleteNote(note._id);
+                  }}
+                />
               </Button>
             </div>
           </div>
