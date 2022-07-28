@@ -10,6 +10,7 @@ const Notes = () => {
   const { notes, getNotes } = context;
   useEffect(() => {
     getNotes();
+    // eslint-disable-next-line
   }, []);
   return (
     <React.Fragment>
@@ -17,7 +18,7 @@ const Notes = () => {
       <div className="row my-3">
         <h4 className="card-title">Your Notes</h4>
         {notes.map((note) => {
-          return <Noteitem note={note} />;
+          return <Noteitem key={note._id} note={note} />;
         })}
       </div>
     </React.Fragment>
