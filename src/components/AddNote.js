@@ -52,12 +52,12 @@ export const AddNote = () => {
           <input
             type="text"
             className="form-control"
-            id="floatingTitle"
-            placeholder="Title"
-            name="title"
+            id="floatingTag"
+            placeholder="Tag"
+            name="tag"
             onChange={onChange}
           />
-          <label htmlFor="floatingTitle">Title</label>
+          <label htmlFor="floatingTag">Tag</label>
         </div>
         <Button
           variant="contained"

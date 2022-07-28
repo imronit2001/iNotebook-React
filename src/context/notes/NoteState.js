@@ -1,6 +1,6 @@
 import NoteContext from "./NoteContext";
 import { useState } from "react";
-import { elementAcceptingRef } from "@mui/utils";
+// import { elementAcceptingRef } from "@mui/utils";
 
 const NoteState = (props) => {
   const host = "http://localhost:5000";
@@ -71,7 +71,7 @@ const NoteState = (props) => {
     // API CAll
 
     const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         "auth-token":
@@ -79,16 +79,20 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({ title, description, tag }),
     });
-    console.log(response.json());
+    const json = await response.json();
+    console.log(json);
 
-    for (let index = 0; index < notes.length; index++) {
-      const element = notes[index];
-      if (elementAcceptingRef._id === id) {
-        element.title = title;
-        element.description = description;
-        element.tag = tag;
+    let newNote = JSON.parse(JSON.stringify(notes));
+    for (let index = 0; index < newNote.length; index++) {
+      const element = newNote[index];
+      if (element._id === id) {
+        newNote[index].title = title;
+        newNote[index].description = description;
+        newNote[index].tag = tag;
+        break;
       }
     }
+    setNotes(newNote);
   };
 
   return (
