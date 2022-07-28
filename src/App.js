@@ -24,7 +24,7 @@ const App = () => {
   return (
     <React.Fragment>
       <NoteState>
-        <Navbar />
+        <Navbar showAlert={showAlert} />
         {<Alert alert={alert} />}
 
         <div className="container">

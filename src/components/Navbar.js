@@ -5,10 +5,17 @@ import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 import Button from "@mui/material/Button";
+import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   let location = useLocation();
+  let navigate = useNavigate();
   React.useEffect(() => {}, [location]);
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    props.showAlert("Logout Successfully", "success");
+    navigate("/login");
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -52,18 +59,28 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-          <form className="d-flex justify-content-center">
-            <Link to="/login" className="mx-1">
-              <Button variant="contained">Login</Button>
-            </Link>
-            <Link to="/signup" className="mx-1">
-              <Button variant="contained">Signup</Button>
-            </Link>
-            {/*<p className="text-white m-auto px-2">
-              <i>Created by : </i>
-              <span className="blockquote">Ronit Singh</span>
-              </p>*/}
-          </form>
+          {!localStorage.getItem("token") ? (
+            <form className="d-flex justify-content-center">
+              <Link to="/login" className="mx-1">
+                <Button variant="contained">Login</Button>
+              </Link>
+              <Link to="/signup" className="mx-1">
+                <Button variant="contained">Signup</Button>
+              </Link>{" "}
+            </form>
+          ) : (
+            <form className="d-flex justify-content-center align-center">
+              <Button variant="text" className="mx-2 text-white">
+                Hello,{" "}
+                {localStorage.getItem("username")
+                  ? localStorage.getItem("username")
+                  : "User"}
+              </Button>
+              <Button onClick={handleLogout} variant="contained">
+                Logout
+              </Button>
+            </form>
+          )}
         </div>
       </div>
     </nav>

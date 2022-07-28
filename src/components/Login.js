@@ -50,7 +50,7 @@ const Login = (props) => {
           />
           <label htmlFor="floatingInput">Email address</label>
         </div>
-        <div className="form-floating">
+        <div className="form-floating mb-3">
           <input
             type="password"
             className="form-control"
