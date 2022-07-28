@@ -7,9 +7,7 @@ import AutoStoriesIcon from "@mui/icons-material/AutoStories";
 
 const Navbar = () => {
   let location = useLocation();
-  React.useEffect(() => {
-    console.log(location.pathname);
-  }, [location]);
+  React.useEffect(() => {}, [location]);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -53,7 +51,7 @@ const Navbar = () => {
               </Link>
             </li>
           </ul>
-          <form class="d-flex justify-content-center">
+          <form className="d-flex justify-content-center">
             <p className="text-white m-auto px-2">
               <i>Created by : </i>
               <span className="blockquote">Ronit Singh</span>
