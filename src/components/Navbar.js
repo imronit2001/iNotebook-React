@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import AutoStoriesIcon from "@mui/icons-material/AutoStories";
+import Button from "@mui/material/Button";
 
 const Navbar = () => {
   let location = useLocation();
@@ -52,10 +53,16 @@ const Navbar = () => {
             </li>
           </ul>
           <form className="d-flex justify-content-center">
-            <p className="text-white m-auto px-2">
+            <Link to="/login" className="mx-1">
+              <Button variant="contained">Login</Button>
+            </Link>
+            <Link to="/signup" className="mx-1">
+              <Button variant="contained">Signup</Button>
+            </Link>
+            {/*<p className="text-white m-auto px-2">
               <i>Created by : </i>
               <span className="blockquote">Ronit Singh</span>
-            </p>
+              </p>*/}
           </form>
         </div>
       </div>
