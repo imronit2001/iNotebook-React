@@ -11,7 +11,7 @@ const Navbar = () => {
   React.useEffect(() => {}, [location]);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div className="container-fluid">
         <Link className="navbar-brand d-flex align-items-center" to="/">
           <AutoStoriesIcon className="mx-2 pr-2" />

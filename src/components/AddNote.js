@@ -4,7 +4,7 @@ import { Button } from "@mui/material";
 import { useContext } from "react";
 
 import NoteContext from "../context/notes/NoteContext";
-export const AddNote = () => {
+export const AddNote = (props) => {
   const context = useContext(NoteContext);
   const { addNote } = context;
 
@@ -25,6 +25,7 @@ export const AddNote = () => {
       description: "",
       tag: "",
     });
+    props.showAlert("Notes Added Successfully", "success");
   };
 
   const onChange = (e) => {

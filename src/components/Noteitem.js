@@ -7,7 +7,7 @@ import NoteContext from "../context/notes/NoteContext";
 const Noteitem = (props) => {
   const context = useContext(NoteContext);
   const { deleteNote } = context;
-  const { note,updateNote } = props;
+  const { note, updateNote } = props;
   return (
     <React.Fragment>
       <div className="col-md-3">
@@ -19,14 +19,17 @@ const Noteitem = (props) => {
             <p className="card-text">{note.description}</p>
             <div className="d-flex justify-content-between">
               <Button variant="contained">
-                <EditIcon onClick={()=>{
-                  updateNote(note);
-                }} />
+                <EditIcon
+                  onClick={() => {
+                    updateNote(note);
+                  }}
+                />
               </Button>
               <Button variant="contained" color="error">
                 <DeleteIcon
                   onClick={() => {
                     deleteNote(note._id);
+                    props.showAlert("Deleted Successfully", "success");
                   }}
                 />
               </Button>
