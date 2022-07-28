@@ -125,6 +125,9 @@ const Notes = () => {
                 Close
               </button>
               <button
+                disabled={
+                  note.etitle.length < 3 || note.edescription.length < 5
+                }
                 onClick={handleClick}
                 type="button"
                 className="btn btn-primary"
@@ -138,11 +141,17 @@ const Notes = () => {
 
       <div className="row my-3">
         <h4 className="card-title">Your Notes</h4>
-        {notes.map((note) => {
-          return (
-            <Noteitem key={note._id} updateNote={updateNote} note={note} />
-          );
-        })}
+        <div className="container">
+          <p className="text-center my-4 text-muted">
+            {notes.length === 8 && "No Notes to Display"}
+          </p>
+        </div>
+        {notes.length > 0 &&
+          notes.map((note) => {
+            return (
+              <Noteitem key={note._id} updateNote={updateNote} note={note} />
+            );
+          })}
       </div>
     </React.Fragment>
   );

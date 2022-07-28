@@ -11,12 +11,20 @@ export const AddNote = () => {
   const [note, setNote] = useState({
     title: "",
     description: "",
-    tag: "default",
+    tag: "",
   });
 
   const handleClick = (e) => {
     e.preventDefault();
+    if (note.tag === "") {
+      note.tag = "default";
+    }
     addNote(note.title, note.description, note.tag);
+    setNote({
+      title: "",
+      description: "",
+      tag: "",
+    });
   };
 
   const onChange = (e) => {
@@ -35,6 +43,8 @@ export const AddNote = () => {
             placeholder="Title"
             name="title"
             onChange={onChange}
+            value={note.title}
+            required
           />
           <label htmlFor="floatingTitle">Title</label>
         </div>
@@ -45,6 +55,8 @@ export const AddNote = () => {
             placeholder="Description"
             name="description"
             onChange={onChange}
+            value={note.description}
+            required
           ></textarea>
           <label htmlFor="floatingDescription">Description</label>
         </div>
@@ -56,10 +68,12 @@ export const AddNote = () => {
             placeholder="Tag"
             name="tag"
             onChange={onChange}
+            value={note.tag}
           />
           <label htmlFor="floatingTag">Tag</label>
         </div>
         <Button
+          disabled={note.title.length < 3 || note.description.length < 5}
           variant="contained"
           endIcon={<SendIcon />}
           onClick={handleClick}
