@@ -48,6 +48,17 @@ export const AddNote = () => {
           ></textarea>
           <label htmlFor="floatingDescription">Description</label>
         </div>
+        <div className="form-floating mb-3">
+          <input
+            type="text"
+            className="form-control"
+            id="floatingTitle"
+            placeholder="Title"
+            name="title"
+            onChange={onChange}
+          />
+          <label htmlFor="floatingTitle">Title</label>
+        </div>
         <Button
           variant="contained"
           endIcon={<SendIcon />}
