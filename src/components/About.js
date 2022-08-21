@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <React.Fragment>
-      <div>About</div>
+      <div className="text-center text-muted">Nothing to Show</div>
     </React.Fragment>
   );
 };

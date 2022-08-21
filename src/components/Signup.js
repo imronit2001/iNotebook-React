@@ -43,7 +43,11 @@ const Signup = (props) => {
 
   return (
     <React.Fragment>
-      <form className="container" onSubmit={handleSubmit} method="POST">
+      <form
+        className="container w-50 mt-5"
+        onSubmit={handleSubmit}
+        method="POST"
+      >
         <div className="form-floating mb-3">
           <input
             type="name"
