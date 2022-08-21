@@ -150,7 +150,7 @@ const Notes = (props) => {
         <h4 className="card-title">Your Notes</h4>
         <div className="container">
           <p className="text-center my-4 text-muted">
-            {notes.length === 8 && "No Notes to Display"}
+            {notes.length === 0 && "No Notes to Display"}
           </p>
         </div>
         {notes.length > 0 &&
